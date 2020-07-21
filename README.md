@@ -2,8 +2,8 @@
 
 Single page CRUD application.
 
-![screenshot_1](screenshots/screen1.png)
-![screenshot_2](screenshots/screen2.png)
+![screenshot_1](screenshots/screen1.PNG)
+![screenshot_2](screenshots/screen2.PNG)
 
 ## Install
 cd project
