@@ -21,8 +21,6 @@
         </div>
         
     </div>
-    <div id="alert-box">
-        @include('layouts.partials.alerts')
-    </div>
+    <div id="alert-box"></div>
 </body>
 </html>

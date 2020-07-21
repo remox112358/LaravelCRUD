@@ -2,9 +2,9 @@
 
 @section('content')
 <h2 class="text-center mb-4">Список работников</h2>
-<a href="{{ route('workers.create') }}" class="btn btn-dark mb-4">Добавить работника</a>
+<button id="workerAdd" class="btn btn-dark mb-4">Добавить работника</button>
 
-<table class="table">
+<table class="table" id="table">
     <thead class="thead-dark">
         <tr>
             <th scope="col">#</th>
@@ -18,27 +18,20 @@
     </thead>
     <tbody>
         @foreach ($workers as $worker)   
-            <tr>
-                <th scope="row">{{ $loop->iteration }}</th>
+            <tr id="worker{{ $worker->id }}">
+                <th scope="row">{{ $worker->id }}</th>
                 <td>{{ $worker->name }}</td>
                 <td>{{ $worker->surname }}</td>
                 <td>{{ $worker->profession }}</td>
                 <td>{{ $worker->experience }}</td>
                 <td>{{ $worker->salary . '₽' }}</td>
                 <td class="table-buttons">
-                    <a href="{{ route('workers.show', $worker) }}" class="btn btn-success">
-                        <i class="fa fa-eye"></i>
-                    </a>
-                    <a href="{{ route('workers.edit', $worker) }}" class="btn btn-primary">
+                    <button class="btn btn-primary worker-update" value="{{ $worker->id }}">
                         <i class="fa fa-pencil" ></i>
-                    </a>
-                    <form method="POST" action="{{ route('workers.destroy', $worker) }}">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger">
-                            <i class="fa fa-trash"></i>
-                        </button>
-                    </form>
+                    </button>
+                    <button class="btn btn-danger worker-delete" value="{{ $worker->id }}">
+                        <i class="fa fa-trash"></i>
+                    </button>
                 </td>
             </tr>
         @endforeach

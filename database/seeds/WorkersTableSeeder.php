@@ -11,12 +11,12 @@ class WorkersTableSeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 0; $i < 20; $i++) { 
+        for ($i = 1; $i <= 20; $i++) { 
             DB::table('workers')->insert([
-                'name' => 'Владислав',
-                'surname' => 'Зубенко',
-                'profession' => 'Юрист',
-                'experience' => '2 года',
+                'name' => 'Имя' . $i,
+                'surname' => 'Фамилия' . $i,
+                'profession' => 'Профессия' . $i,
+                'experience' => 'Стаж' . $i,
                 'salary' => rand(30000, 50000),
             ]);
         }

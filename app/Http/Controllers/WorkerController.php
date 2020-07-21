@@ -25,7 +25,7 @@ class WorkerController extends Controller
      */
     public function create()
     {
-        return view('create');
+        
     }
 
     /**
@@ -38,11 +38,7 @@ class WorkerController extends Controller
     {
         $worker = Worker::create($request->all());
 
-        $worker->save();
-
-        return redirect()
-                ->route('home')
-                ->with('success', 'Работник успешно добавлен !');
+        return response()->json($worker);
     }
 
     /**
@@ -53,7 +49,7 @@ class WorkerController extends Controller
      */
     public function show(Worker $worker)
     {
-        return view('show', compact('worker'));
+        return response()->json($worker);
     }
 
     /**
@@ -64,7 +60,7 @@ class WorkerController extends Controller
      */
     public function edit(Worker $worker)
     {
-        return view('edit', compact('worker'));
+        
     }
 
     /**
@@ -84,9 +80,7 @@ class WorkerController extends Controller
 
         $worker->save();
 
-        return redirect()
-                ->route('home')
-                ->with('success', 'Информация о работнике успешно отредактирована !');
+        return response()->json($worker);
     }
 
     /**
@@ -99,8 +93,6 @@ class WorkerController extends Controller
     {
         $worker->delete();
 
-        return redirect()
-                ->route('home')
-                ->with('success', 'Работник успешно удалён !');
+        return response()->json($worker);
     }
 }

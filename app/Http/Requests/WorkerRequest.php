@@ -31,4 +31,14 @@ class WorkerRequest extends FormRequest
             'salary' => 'required|numeric|min:1000',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'required' => 'Данное поле обязательно к заполнению',
+            'max' => 'Поле не может содержать больше чем :max символов',
+            'numeric' => 'Данное поле должно содержать числовое значение',
+            'min' => 'Значение данного поля должно быть не менее :min'
+        ];
+    }
 }
